@@ -1,0 +1,97 @@
+
+<div class="container mt-4">
+    <div id="registrarlocales" class="card">
+        <div class="card-header">
+            <h2> <i class="fas fa-store"></i> Registrar Solicitud De Local</h2>            
+     
+    <body>
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="localForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">NOMBRE DEL LOCAL</label>
+                                    <input type="text" id="name" formControlName="nombreLocal" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="type">CATEGORÍA</label>
+                                    <select id="type" formControlName="idCategoria" class="form-control" required>
+                                        <option value="" disabled selected>Seleccionar...</option>
+
+                                        <option *ngFor="let categoria of categorias" [value]="categoria.idCategoria">{{ categoria.nombreCategoria }}</option>
+                                      </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="facebook"><i class="fab fa-facebook"></i> LINK DE FACEBOOK</label>
+                                    <input type="url" id="facebook" formControlName="linkFacebook" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="instagram"><i class="fab fa-instagram"></i> LINK DE INSTAGRAM</label>
+                                    <input type="url" id="instagram" formControlName="linkInstagram" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone"><i class="fas fa-phone"></i> TELÉFONO</label>
+                                    <input type="tel" id="phone" formControlName="telefono" class="form-control" placeholder="Ej: +51 999999999">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ruc">RUC</label>
+                                    <input type="text" id="ruc" formControlName="ruc" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="descripcion">DESCRIPCION</label>
+                                    <textarea id="descripcion" formControlName="descripcion" class="form-control" rows="3" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="googleMaps"><i class="fas fa-map-marker-alt"></i> LINK DE GOOGLE MAPS</label>
+                                    <input type="url" id="googleMaps" formControlName="linkMaps" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="horaApertura"><i class="fas fa-clock"></i> HORARIOS DE APERTURA</label>
+                                    <input type="time" id="horaApertura" formControlName="horaApertura" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="horaCierre"><i class="fas fa-clock"></i> HORARIOS DE CIERRE</label>
+                                    <input type="time" id="horaCierre" formControlName="horaCierre" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">UBICACIÓN</label>
+                                    <input type="text" id="address" formControlName="ubicacion" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="diasAtencion"><i class="fas fa-calendar-alt"></i> DÍAS DE ATENCIÓN</label>
+                                    <div id="diasAtencion" formGroupName="diasAtencion">
+                                      <div *ngFor="let dia of diasSemana" class="form-check">
+                                        <input type="checkbox" [formControlName]="dia" id="{{dia}}" class="form-check-input">
+                                        <label [for]="dia" class="form-check-label">{{ dia }}</label>
+                                      </div>
+                                    </div>
+                                  </div>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label for="fichaRuc">Ficha RUC (PDF)</label>
+                                <input type="file" id="fichaRuc" formControlName="fichaRuc" class="form-control" accept="application/pdf" (change)="onFileChange2($event)" required>
+                              </div>
+                            <div class="form-group">
+                                <label for="images">SUBIR IMAGENES(máximo 5)</label>
+                                <input type="file" id="images" formControlName="imagenes" class="form-control" multiple
+                                    (change)="onFileChange($event)" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary w-100">Registrar Local</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+    

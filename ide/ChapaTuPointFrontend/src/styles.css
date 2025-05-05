@@ -1,0 +1,15 @@
+/* Importar la fuente Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+/* Estilos globales */
+html, body { 
+    height: 100%; 
+    margin: 0; 
+    font-family: 'Poppins', Roboto, "Helvetica Neue", sans-serif; 
+}
+
+body {
+    background: #f8f9ff6b;
+    /* background: rgb(145,147,186);
+    background: radial-gradient(circle, rgba(145,147,186,1) 17%, rgba(83,86,148,1) 70%, rgba(64,70,159,1) 91%);*/
+}

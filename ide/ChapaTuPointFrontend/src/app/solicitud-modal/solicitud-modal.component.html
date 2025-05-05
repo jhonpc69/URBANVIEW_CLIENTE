@@ -1,0 +1,103 @@
+<div id="solicitudModal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <h2 class="modal-title text-center">{{ solicitud?.nombreLocal }}</h2>
+          <button type="button" class="btn-close" (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Nombre Usuario:</strong> {{ solicitud?.idUsuario }}</p>
+                <p><strong>Categoría:</strong> {{ getCategoriaNombre(solicitud?.idCategoria) }}</p>
+                <p>
+                  <strong class="mr-2">Facebook:</strong> 
+                  <a [href]="solicitud?.linkFacebook" target="_blank" class="ml-2">Click Aqui
+                    <i class="fab fa-facebook"></i>
+                  </a>
+                </p>
+                <p>
+                  <strong class="mr-2">Instagram:</strong> 
+                  <a [href]="solicitud?.linkInstagram" target="_blank" class="ml-2">Click Aqui
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </p>
+                <p><strong>Teléfono:</strong> {{ solicitud?.telefono }}</p>
+                <p><strong>RUC:</strong> {{ solicitud?.ruc }}</p>
+                <p>
+                  <strong class="mr-2">Google Maps:</strong> 
+                  <a [href]="solicitud?.linkMaps" target="_blank" class="ml-2">Click Aqui
+                    <i class="fas fa-map-marker-alt"></i>
+                  </a>
+                </p>
+                <p><strong>Ficha RUC:</strong> 
+                  <a (click)="descargarPDF()" style="cursor: pointer;">
+                    Descargar PDF <i class="fas fa-download"></i>
+                  </a>
+                </p>
+                
+              </div>
+              <div class="col-md-6">
+                <p><strong>Hora Apertura:</strong> {{ solicitud?.horaApertura }}</p>
+                <p><strong>Hora Cierre:</strong> {{ solicitud?.horaCierre }}</p>
+                <p><strong>Ubicación:</strong> {{ solicitud?.ubicacion }}</p>
+                <p><strong>Descripción:</strong> {{ solicitud?.descripcion }}</p>
+                <p><strong>Estado:</strong> {{ solicitud?.estado }}</p>
+                <p><strong>Fecha Publicación:</strong> {{ solicitud?.fechaPublicacion }}</p>
+
+              </div>
+            </div>
+          </div>
+          <div *ngIf="solicitud?.imagenes?.length">
+            <p><strong>Imágenes ({{ solicitud.imagenes.length }}):</strong></p>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button *ngFor="let imagen of solicitud.imagenes; let i = index" type="button" data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="i" [class.active]="i === 0" aria-current="i === 0 ? 'true' : 'false'" [attr.aria-label]="'Slide ' + (i + 1)"></button>
+              </div>
+              <div class="carousel-inner">
+                <div *ngFor="let imagen of solicitud.imagenes; let i = index" class="carousel-item" [class.active]="i === 0">
+                  <img [src]="imagen" class="d-block w-100" alt="Imagen de la solicitud">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click)="rechazarSolicitud()">Rechazar</button>
+          <button type="button" class="btn btn-success" (click)="aceptarSolicitud()">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="rechazoModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Razón del Rechazo</h5>
+        <button type="button" class="close" (click)="closeRechazoModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="enviarRechazo()">
+          <div class="form-group">
+            <label for="razonRechazo">Razón</label>
+            <textarea class="form-control" id="razonRechazo" [(ngModel)]="razonRechazo" name="razonRechazo" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mt-2">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

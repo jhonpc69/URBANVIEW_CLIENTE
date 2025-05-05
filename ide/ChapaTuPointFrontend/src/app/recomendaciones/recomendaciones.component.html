@@ -1,0 +1,27 @@
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <p class="text-muted" style="font-size: 20px;">Recomendaciones</p>
+    </div>
+    <div class="row justify-content-center g-4 mt-3 border-top">
+      <div class="col-md-4 col-lg-2" *ngFor="let card of cards">
+        <div class="card custom-card text-white">
+            <div class="card-img-container">
+              <img src="{{ card.image }}" class="card-img-top" alt="Imagen">
+              <h2 class="card-title card-title2">{{ card.title }}</h2>
+              <div class="card-hover-overlay">
+                <div class="card-hover-info">
+                  <h5 class="card-title">{{ card.title }}</h5>
+                  <p class="card-text">{{ card.description }}</p>
+                  <div class="stars">
+                    <i class="fa fa-star" *ngFor="let star of [1,2,3,4,5]; let i = index" 
+                       [class.text-warning]="i < card.rating"
+                       [class.text-secondary]="i >= card.rating"></i>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+    </div>
+</div>

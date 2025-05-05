@@ -1,0 +1,18 @@
+<div class="modal fade" [class.modal-dialog-scrollable]="scrollable" [class.show]="show" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+	<div class="modal-dialog" [ngClass]="size!=''?'modal-'+size:''">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="text-primary fs-5 fw-bold m-0">{{title}}</h5>
+			</div>
+
+			<div class="modal-body">
+				<ng-content></ng-content>
+			</div>
+
+			<div class="modal-footer" *ngIf="!hideFooter">
+				<button *ngIf="!hideCancel" type="button" class="btn btn-cmac btn-secondary" (click)="onCancel()">Cancelar</button>
+				<button type="button" class="btn btn-cmac btn-primary" (click)="onAccept()">{{textAccept}}</button>
+			</div>
+		</div>
+	</div>
+</div>

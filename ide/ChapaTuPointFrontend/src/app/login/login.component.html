@@ -1,0 +1,39 @@
+<div id="loginmodal" class="modallogin">
+  <div class="card d-flex flex-row position-relative">
+    <div class="form-container flex-fill p-5">
+      <h2 class="m-4">Ingresa a: </h2>
+      <div class="d-flex justify-content-center">
+        <img src="https://i.imgur.com/JmPYp29.png" alt="ChapaTuPoint" style="height: 70px;">
+      </div>
+      <form  [formGroup]="loguin" class="p-3 m-4 mt-1">
+        <div class="mb-5 form-group">
+          <input type="text" id="username" formControlName="user" class="custom-placeholder form-control" placeholder="Ingresa DNI">
+        </div>
+
+        <div class="mb-5">
+          <input type="password" id="password" formControlName="password" class="custom-placeholder form-control" placeholder="Contraseña">
+        </div>
+
+        <div class="form-check m-3">
+          <input type="checkbox" class="form-check-input" id="rememberMe" formControlName="rememberMe">
+          <label class="form-check-label" for="rememberMe">Recuérdame</label>
+        </div>
+
+        <div class="d-flex justify-content-center mb-3">
+          <label>
+            Si no estás registrado <a href="/registrar">Click Aquí</a>
+          </label>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-primary flex-fill m-2" (click)="onVerificar()">Ingresar</button>
+        </div>
+      </form>
+    </div>
+    <div class="image-container flex-fill">
+      <p class="btn-close position-absolute top-0 end-0" [routerLink]="'/home'">X</p>
+      <div class="overlay"></div>
+      <img src="../../../assets/img/point.jpeg" alt="Imagen" class="img-fluid">
+    </div>
+  </div>
+</div>

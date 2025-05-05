@@ -1,0 +1,79 @@
+
+
+.left-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.logo {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hr{
+  color: white;
+
+}
+
+.glass-navbar {
+  background: linear-gradient(to right, #00a848, #4aa03b); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none; 
+}
+
+.glass-navbar .btn-primary {
+  background-color: rgba(255, 255, 255, 0.1); 
+  border: none;
+  color: white; 
+}
+
+.glass-navbar .form-select {
+  background-color: rgba(255, 255, 255, 0.2); 
+  border: none;
+  color: white;
+}
+
+.glass-navbar .form-select option {
+  background-color: rgba(0, 0, 0, 0.8); 
+  color: white;
+}
+
+.glass-navbar .bi-person {
+  color: white;
+}
+
+.logo {
+  color: white; 
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.left-buttons .btn {
+  background: linear-gradient(to right, #e42f59, #ff4b2b); 
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border-radius: 0.3rem;
+  transition: background 0.3s ease;
+}
+
+.left-buttons .btn:hover {
+  background: linear-gradient(to right, #ff4b2b, #e42f59); /* Gradiente invertido al pasar el mouse */
+}
+
+.right-controls .bi {
+  color: white; /* Iconos blancos */
+}
+
+.hr {
+  color: rgba(255, 255, 255, 0.5); /* Línea separadora semitransparente */
+}
