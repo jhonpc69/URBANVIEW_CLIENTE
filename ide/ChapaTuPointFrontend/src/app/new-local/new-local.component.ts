@@ -15,7 +15,6 @@ export class NewLocalComponent implements OnInit {
   selectedPdf: File | null = null;
   categorias: any[] = [];
   isLoading = false;
-  diasSemana: string[] = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
   constructor(private fb: FormBuilder, private solicitudesService: SolicitudesService, private router: Router) { }
 
@@ -41,13 +40,7 @@ export class NewLocalComponent implements OnInit {
       linkFacebook: [''],
       linkInstagram: [''],
       linkMaps: [''],
-      ruc: ['', Validators.required],
-      diasAtencion: this.fb.group(
-        this.diasSemana.reduce((acc: { [key: string]: FormControl }, dia: string) => {
-          acc[dia] = new FormControl(false);
-          return acc;
-        }, {})
-      )
+      ruc: ['', Validators.required]
     });
   }
 
@@ -85,15 +78,9 @@ export class NewLocalComponent implements OnInit {
 
 
     Object.keys(formValue).forEach(key => {
-      if (key !== 'diasAtencion' ) {
-        formData.append(key, formValue[key]);
-      }
+      formData.append(key, formValue[key]);
     });
     
-
-
-  const diasAtencion = Object.keys(formValue.diasAtencion).filter(dia => formValue.diasAtencion[dia]).join(', ');
-  formData.append('diasAtencion', diasAtencion);
 
 
     this.selectedFiles.forEach(file => {
