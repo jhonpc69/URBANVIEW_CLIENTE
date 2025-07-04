@@ -1,0 +1,52 @@
+h2 {
+    color: #333;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem; 
+    line-height: 1.6; 
+}
+
+.btn-gradient {
+    background: linear-gradient(to right,#00a848, #4aa03b);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: background 0.2s ease;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(to right, #65b357, #0cc25b);
+}
+.text-muted {
+    font-size: 0.9rem;
+}
+
+.text-pointer {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.content-container {
+    padding-top: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    .content-container {
+      padding-top: 80px;
+    }
+  }
+  
+
+  @media (max-width: 576px) {
+    .content-container {
+      padding-top: 120px;
+    }
+  }

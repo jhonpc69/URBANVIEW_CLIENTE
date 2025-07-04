@@ -1,0 +1,83 @@
+.card2 {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card2:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card2-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.btn-gradient {
+  background: linear-gradient(to right,#00a848, #4aa03b);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(to right, #65b357, #0cc25b);
+}
+.text-muted {
+  font-size: 0.9rem;
+}
+
+.text-pointer {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.sidebar {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h4 {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.sidebar ul li a {
+  color: #6c757d;
+  transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+  color: #007bff;
+}
+
+.sidebar ul li button {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+.content-container {
+  padding-top: 90px;
+}
+
+
+@media (max-width: 768px) {
+  .content-container {
+    padding-top: 80px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .content-container {
+    padding-top: 200px; 
+  }
+}

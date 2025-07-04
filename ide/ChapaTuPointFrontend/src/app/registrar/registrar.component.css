@@ -1,0 +1,186 @@
+.modallogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+}
+
+.card {
+  width: 900px;
+  background-color: #0E1438;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.753);
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.form-check-label{
+  color : #818181;
+}
+
+.form-container {
+  flex: 1;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /*ya tiene imagenes en bd*/
+  /* overflow: hidden; */
+}
+
+.col-10{
+  width: 500px;
+}
+
+.img-fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #0E1438,#0e1438b0, transparent);
+  pointer-events: none;
+}
+h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+@media (max-width: 768px) {
+  .image-container {
+    display: none;
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  color: #fff;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #818181;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #0E1438;
+  outline: none;
+}
+
+input[type="text"]::placeholder,
+input[type="date"]::placeholder,
+input[type="password"]::placeholder {
+  color: #aaa;
+}
+
+.checkbox {
+  margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+button {
+  width: 100%;
+  max-width: 300px;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-primary {
+  background: rgb(92,34,167);
+  background: linear-gradient(36deg, rgba(92,34,167,1) 0%, rgba(54,19,98,1) 32%, rgba(36,5,134,1) 81%);
+}
+.btn-secondary {
+  background-color: #505865;
+}
+
+.btn-primary:hover {
+  background: rgb(36,5,134);
+  background: linear-gradient(36deg, rgba(36,5,134,1) 0%, rgba(54,19,98,1) 32%, rgba(92,34,167,1) 81%);
+}
+
+.btn-secondary:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.forgot-password {
+  color: #fff;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.forgot-password a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.custom-placeholder::placeholder {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #000000;
+  cursor: pointer;
+}
+
+.btn-close:hover {
+  color: #ff0000;
+}
+
+@media (width < 431px ) {
+  .col-10{
+    width: 100vw;
+  }
+}

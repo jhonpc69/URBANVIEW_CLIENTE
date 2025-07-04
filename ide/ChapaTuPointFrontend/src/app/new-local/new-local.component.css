@@ -1,0 +1,127 @@
+
+.card {
+    background-color: #0e143885;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    max-width: 100%;
+    color: #fff;
+}
+
+.card-header {
+    background-color: rgba(45, 0, 117, 0.308);;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+}
+
+
+.card-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+}
+
+.form-group label i {
+    margin-right: 8px;
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    width: 100%; 
+    max-width: 300px;
+    color: #fff;
+    border: none;    
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background: rgb(92,34,167);
+    background: linear-gradient(36deg, rgba(92,34,167,1) 0%, rgba(54,19,98,1) 32%, rgba(36,5,134,1) 81%);
+}
+
+.btn-secondary {
+    background-color: #505865;
+}
+
+.btn-primary:hover {
+    background: rgb(36,5,134);
+    background: linear-gradient(36deg, rgba(36,5,134,1) 0%, rgba(54,19,98,1) 32%, rgba(92,34,167,1) 81%);
+}
+
+.btn-secondary:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5H7z" fill="%23000"/></svg>') no-repeat right 10px center;
+    background-size: 12px;
+    padding-right: 30px;
+    color: #000000; /* Texto del select en blanco */
+    background-color: #ffffff; /* Fondo del select en negro */
+}
+
+select.form-control option {
+    color: #000000; /* Texto de las opciones en negro */
+    background-color: #ffffff; /* Fondo de las opciones en blanco */
+}
+
+
+body {
+    background-color: #ffe4bc;
+    padding: 20px;
+}
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.card-body {
+    padding: 2rem;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+label i {
+    margin-right: 8px;
+}
+.fa-facebook {
+    color: #1877f2;
+}
+.fa-instagram {
+    color: #e4405f;
+}
+.fa-map-marker-alt {
+    color: #ea4335;
+}
+.fa-phone {
+    color: #28a745;
+}

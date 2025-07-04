@@ -1,0 +1,80 @@
+.custom-card {
+    overflow: hidden;
+    background-color: #222;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    height: 300px; /* Altura fija para la tarjeta */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Sombra inicial */
+}
+
+.custom-card:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al pasar el mouse */
+    transform: translateY(-5px); /* Efecto de elevación */
+}
+
+.card-img-container {
+    height: 100%; /* La imagen ocupará toda la tarjeta */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    overflow: hidden;
+    position: relative; /* Para posicionar elementos superpuestos */
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%; /* La imagen se ajusta a la altura del contenedor */
+    object-fit: cover; /* Recorta la imagen para que se ajuste sin deformarse */
+    transition: transform 0.4s ease-in-out; /* Efecto suave al hacer hover */
+}
+
+.card-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo opaco */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card-hover-info {
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+.custom-card:hover .card-hover-overlay {
+    opacity: 1;
+}
+
+.custom-card:hover img {
+    transform: scale(1.05); 
+}
+.custom-card:hover .card-title2 {
+    opacity: 0; /* Oculta el título al hacer hover */
+  }
+.card-title{
+    font-size: 1.0rem;
+    font-weight: bold;
+    color: #fff; /* Color del texto del título */
+    text-align: center; /* Centra el texto del título */
+    margin: 0.5rem 0; /* Espacio alrededor del título */
+    
+}
+
+.card-title2 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    border-radius: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+    transition: opacity 0.3s ease-in-out; /* Transición suave */
+    opacity: 1; /* Visible por defecto */
+  }

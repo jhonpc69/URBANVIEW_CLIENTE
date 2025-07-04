@@ -1,0 +1,101 @@
+<div class="container-fluid h-100">
+  <div class="row h-50">
+    <div class="col-md-6 p-0">
+      <a [routerLink]="['/recomendados']" [queryParams]="{ idCategoria: 2 }" class="text-decoration-none">        <div class="position-relative h-100 overflow-hidden">
+          <img src="../../../assets/img/Discooo.jpg" class="img-fluid w-100 h-100 zoom-image" alt="...">
+          <div class="position-absolute text-container">
+            DISCOTECAS
+          </div>
+          <div class="overlay"></div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-6 p-0">
+      <a [routerLink]="['/recomendados']" [queryParams]="{ idCategoria: 4 }" class="text-decoration-none">        <div class="position-relative h-100 overflow-hidden">
+          <img src="../../../assets/img/bar.jpg" class="img-fluid w-100 h-100 zoom-image" alt="...">
+          <div class="position-absolute text-container">
+            CLUBS
+          </div>
+          <div class="overlay"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="row h-50">
+    <div class="col-md-6 p-0">
+      <a [routerLink]="['/recomendados']" [queryParams]="{ idCategoria: 1 }" class="text-decoration-none">        <div class="position-relative h-100 overflow-hidden">
+          <img src="../../../assets/img/restaurante.jpg" class="img-fluid w-100 h-100 zoom-image" alt="...">
+          <div class="position-absolute text-container">
+            RESTAURANTES
+          </div>
+          <div class="overlay"></div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-6 p-0">
+      <a [routerLink]="['/recomendados']" [queryParams]="{ idCategoria: 3 }" class="text-decoration-none">        <div class="position-relative h-100 overflow-hidden">
+          <img src="../../../assets/img/FX0OF4HVsAEf4bs.jpeg" class="img-fluid w-100 h-100 zoom-image" alt="...">
+          <div class="position-absolute text-container">
+            HOTELES
+          </div>
+          <div class="overlay"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <div class="col-12 text-center py-3" >
+    <button class="btn btn-link text-decoration-none text-muted" onclick="openModal()" style="font-size: 300px;">
+        Términos y condiciones de uso de datos personales
+      </button>
+      
+    </div>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+
+  <style>
+    html{
+      height: 40px;
+    }
+  </style>
+</head>
+<body >
+  <div class="container-fluid h-100">
+    <!-- Contenido de la página aquí -->
+
+    <!-- Footer con el enlace -->
+    <div class="row">
+      <div class="col-12 text-center py-3" >
+        <button class="btn btn-link text-decoration-none text-muted" data-bs-toggle="modal" data-bs-target="#termsModal">
+          Términos y Condiciones
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="termsModalLabel">Términos y Condiciones</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>En nuestra plataforma, utilizamos datos personales con el propósito exclusivo de mejorar tu experiencia al visitar locales como DISCOTECAS,CLUBS,RESTAURANTES Y HOTELES. Estos datos nos ayudan a ofrecerte recomendaciones personalizadas, garantizar la calidad del servicio, y mantener un entorno seguro y confiable.</p>
+          <p>Respetamos tu privacidad y manejamos tu información de acuerdo con las leyes vigentes, asegurándonos de que solo se use para los fines establecidos.<a href="#" class="text-decoration-none">REGRESAR AL MENU PRINCIPAL</a>.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

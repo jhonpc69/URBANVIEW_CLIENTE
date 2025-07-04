@@ -1,0 +1,66 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color:#1a1c40;
+  }
+  
+  .modal-dialog {
+    position: relative;
+    margin: 1.75rem auto;
+    max-width: 500px;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.3rem;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .modal-body {
+    position: relative;
+    padding: 1rem;
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid #dee2e6;
+  }
+  label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+label i {
+    margin-right: 8px;
+}
+.fa-facebook {
+    color: #1877f2;
+}
+.fa-instagram {
+    color: #e4405f;
+}
+.fa-map-marker-alt {
+    color: #ea4335;
+}
+.fa-phone {
+    color: #28a745;
+}

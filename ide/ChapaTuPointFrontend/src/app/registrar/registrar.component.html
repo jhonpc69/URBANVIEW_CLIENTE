@@ -1,0 +1,94 @@
+<!-- <div id="loginmodal" class="modallogin">
+  <div class="card d-flex flex-row position-relative" style="height:750px">
+    <div class="col-10 p-5">
+      <h2 class="m-4">Registrate: </h2>
+      <div class="d-flex justify-content-center">
+        <img src="https://i.imgur.com/JmPYp29.png" alt="ChapaTuPoint" style="height: 70px;">
+      </div>
+      <form [formGroup]="registrar" class="p-3 m-4 mt-1" (ngSubmit)="onRegistrar()">
+
+        <div class="mb-4 image-container form-group">
+          <input type="text" id="nombre" formControlName="nombre" class="custom-placeholder form-control" placeholder="Nombres">
+        </div>
+        <div class="mb-4 image-container form-group">
+          <input type="text" id="apellido" formControlName="apellido" class="custom-placeholder form-control" placeholder="Apellidos">
+        </div>
+        <div class="mb-4 image-container form-group">
+          <input type="text" id="dni" formControlName="dni" class="custom-placeholder form-control" placeholder="DNI">
+        </div>
+        <div class="mb-4 image-container form-group">
+          <input type="text" id="telefono" formControlName="telefono" class="custom-placeholder form-control" placeholder="Telefono">
+        </div>
+        <div class="mb-4 image-container form-group">
+          <input type="password" id="claveusuario" formControlName="claveusuario" class="custom-placeholder form-control" placeholder="Contraseña">
+        </div>
+
+        <div class="mb-4 image-container">
+          <input type="text" id="correo" formControlName="correo" class="custom-placeholder form-control" placeholder="Correo Electrónico">
+        </div>
+
+        <label>
+          Ya estas registrado ? <a href="/login">Ingresa</a>
+        </label>
+
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-primary flex-fill m-2">Registrar</button>
+        </div>
+      </form>
+    </div>
+    <div class="image-container flex-fill">
+      <p class="btn-close position-absolute top-0 end-0" [routerLink]="'/home'">X</p>
+      <div class="overlay"></div>
+      <img src="https://i.imgur.com/cV3jN8H.jpg" alt="Imagen" class="img-fluid">
+    </div>
+  </div>
+</div> -->
+<div id="loginmodal" class="modallogin">
+  <div class="card d-flex flex-row position-relative" style="height:750px">
+    <div class="col-10 p-5">
+      <h2 class="m-4">Registrate: </h2>
+      <div class="d-flex justify-content-center">
+        <img src="https://i.imgur.com/JmPYp29.png" alt="ChapaTuPoint" style="height: 70px;">
+      </div>
+      <form [formGroup]="registrar" class="p-3 m-4 mt-1" (ngSubmit)="onRegistrar()">
+
+        <div class="mb-4 image-container form-group">
+          <input type="text" id="nombre" formControlName="nombre" class="custom-placeholder form-control" placeholder="Ingrese Nombres">
+        </div>
+        <div class="mb-4 image-container form-group">
+          <input type="text" id="apellido" formControlName="apellido" class="custom-placeholder form-control" placeholder="Ingrese Apellidos">
+        </div>
+        <div class="mb-4 image-container form-group">
+          <input type="text" id="dni" formControlName="dni" class="custom-placeholder form-control" placeholder="Ingrese su DNI">
+        </div>
+        <div class="mb-4 image-container form-group">
+          <input type="text" id="telefono" formControlName="telefono" class="custom-placeholder form-control" placeholder="Ingrese Telefono">
+        </div>
+        <div class="mb-4 image-container form-group">
+          <input type="password" id="claveusuario" formControlName="claveusuario" class="custom-placeholder form-control" placeholder="Crear Contraseña">
+        </div>
+
+        <div class="mb-4 image-container">
+          <input type="text" id="correo" formControlName="correo" class="custom-placeholder form-control" placeholder="Correo Electrónico">
+        </div>
+        
+        <label style="font-size: 1.3em; font-weight: bold;">
+          ¿Ya estás registrado? <a href="/login">Ingresa</a>
+      </label>
+      
+        <!-- <label>
+          Ya estas registrado ? <a href="/login">Ingresa</a>
+        </label> -->
+
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-primary flex-fill m-2 ;style=font-size: 1.8em;font-weight: bold;">REGISTRARME</button>
+        </div>
+      </form>
+    </div>
+    <div class="image-container flex-fill">
+      <p class="btn-close position-absolute top-0 end-0" [routerLink]="'/home'">X</p>
+      <div class="overlay"></div>
+      <img src="https://i.imgur.com/cV3jN8H.jpg" alt="Imagen" class="img-fluid">
+    </div>
+  </div>
+</div>

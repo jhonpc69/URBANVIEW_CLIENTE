@@ -1,0 +1,18 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .input-group-text {
+    background-color: #36395a;
+    color: white;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }

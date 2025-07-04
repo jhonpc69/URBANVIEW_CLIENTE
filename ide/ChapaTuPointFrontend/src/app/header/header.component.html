@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark glass-navbar">
+  <div class="container-fluid">
+    <div class="navbar-nav">
+      <div class="navbar-brand">
+        <a routerLink="/home2">
+            <img src="assets/newimg/Urbann.png" alt="ChapaTuPoint" style="height: 50px;">
+        </a>
+    </div>
+      <!-- <button class="btn btn-primary me-2">Nuevos</button>
+      <button class="btn btn-primary me-2">Recomendados</button>-->
+      <button *ngIf="!userName" class="btn btn-primary m-2" [routerLink]="'/registrar'">
+        <i class="fas fa-user-plus"></i> Registrate
+      </button>
+      <button class="btn btn-primary m-2" [routerLink]="'/registrarlocal'">
+        <i class="fas fa-store"></i> Haz tu negocio parte de nosotros
+      </button>
+    </div>
+    
+    <div class="d-flex">
+      <button *ngIf="userName && tipoUsuario === 1" class="btn btn-primary ms-2 me-2" [routerLink]="'/admin'">
+        <i class="fas fa-cog"></i> Admin
+      </button>
+      <button class="btn btn-primary me-2" (click)="handleNotificationClick()">
+        <i class="fas fa-bell"></i>
+      </button>
+      <button *ngIf="!userName" class="btn btn-primary" [routerLink]="'/login'">
+        <i class="fas fa-user"></i> Login
+      </button>
+      <div *ngIf="userName" class="d-flex align-items-center" style="color: aliceblue;">
+        <i class="fas fa-user m-2"></i> {{ userName }}
+        <button class="btn btn-danger ms-2" (click)="logout()">  <i class="fas fa-sign-out-alt"></i></button>
+      </div>
+
+    </div>
+  </div>
+  <hr>
+</nav>
+
+<!-- Modal de chido pa las notis -->
+
+<div id="notificationModal" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Notificaciones</h5>
+        <button type="button" class="btn-close" (click)="closeNotificationModal()"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="!userName">
+          <p>Por favor, <a [routerLink]="'/login'">inicia sesión</a> para recibir notificaciones.</p>
+        </div>
+        <div *ngIf="userName && notifications.length === 0">
+          <p>Aún no tienes notificaciones.</p>
+        </div>
+        <div *ngIf="userName && notifications.length > 0">
+          <div *ngFor="let notification of notifications" [ngClass]="getNotificationClass(notification.estado)">
+            <p><strong>{{ notification.nombreLocal }}</strong></p>
+            <p>Tu solicitud está en: {{ notification.estado }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeNotificationModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

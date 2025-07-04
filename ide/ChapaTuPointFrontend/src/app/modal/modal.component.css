@@ -1,0 +1,24 @@
+.modal {
+  z-index: 100 !important;
+}
+
+.modal .modal-dialog {
+  z-index: 100 !important;
+}
+
+.modal.show {
+  display: block;
+  background-color: rgba(68, 67, 67, 0.8); /* Reemplazando la variable SCSS con valores CSS */
+  position: fixed;
+  z-index: 100;
+}
+
+.modal .modal-content {
+  border-radius: 1rem;
+}
+
+.btn-cmac{
+  color: aliceblue;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 13%, rgba(29,29,29,1) 49%, rgba(10,10,10,1) 86%, rgba(255,255,255,1) 100%);
+}
