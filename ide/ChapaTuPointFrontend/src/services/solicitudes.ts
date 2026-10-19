@@ -8,7 +8,7 @@ const base_url = environment.base_url;
     providedIn: 'root'
 })
 export class SolicitudesService {
-    private baseUrl: string = 'http://localhost:8081';
+    private baseUrl: string = environment.base_url;
 
     constructor(private http: HttpClient) {}
 

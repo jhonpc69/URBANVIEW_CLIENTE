@@ -9,7 +9,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const token = localStorage.getItem('accessToken');
 
     // Excluye el endpoint de login de la inyección del token
-    if (req.url.includes('/auth/login')) {
+    if (req.url.includes('/auth/login') || req.url.includes('/auth/verify-code')) {
       return next.handle(req); // No agregar el token
     }
 

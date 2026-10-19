@@ -1,116 +1,54 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
-
+import { finalize } from 'rxjs/operators';
 import { AuthService } from 'src/services/auth.service';
-import { ModalService } from 'src/services/modal.service';
-import { tap } from 'rxjs/operators';
-import Swal from 'sweetalert2'; // Asegúrate de importar SweetAlert2
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  @ViewChild('loginmodal')
-  loginmodal!: ElementRef;
-  loguin: FormGroup;
+export class LoginComponent {
+  loguin = new FormGroup({
+    user: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
+  });
+  code = new FormControl('', [Validators.required, Validators.pattern(/^\d{6}$/)]);
+  codeSent = false;
+  busy = false;
+  error = '';
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private authService: AuthService,
-    private modalService: ModalService
-  ) {
-    this.loguin = new FormGroup({
-      user: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
-    });
-
-    this.modalService.modalState$.subscribe(state => {
-      if (state) {
-        this.openModal();
-      } else {
-        this.closeModal();
-      }
-    });
-  }
-
-  ngOnInit(): void {
-    this.loadUserData();
-  }
-  loadUserData(): void {
-   
-  }
-
-  openModal() {
-    this.loginmodal.nativeElement.style.display = 'block';
-    console.log('Intentando entrar al modal login');
-  }
-
-  closeModal() {
-    this.loginmodal.nativeElement.style.display = 'none';
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
   onVerificar() {
     this.loguin.markAllAsTouched();
-    
-    if (this.loguin.valid) {
-      this.authService.login(this.loguin.value.user, this.loguin.value.password)
-        .pipe(
-          tap((resp: any) => {
-            if (!resp?.empty) {
-              Swal.fire({
-                title: 'BIENVENIDO',
-                text: `${resp.usuario.nombresCompletos}`,
-                icon: 'success',
-                confirmButtonText: 'Aceptar'
-              }).then(() => {
-                this.router.navigate(['/home']).then(() => {
-                  window.location.reload();
-                });
-              });
-            } else {
-              console.log('La respuesta está vacía o no existe.');
-              Swal.fire({
-                title: 'Error',
-                text: 'Usuario o contraseña incorrectos',
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-              });
-            }
-          }),
-          catchError((error) => {
-            if (error.status === 403) {
-              Swal.fire({
-                title: 'Error',
-                text: 'Usuario o contraseña incorrectos',
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-              });
-            } else {
-        
-              Swal.fire({
-                title: 'Error',
-                text: 'Ocurrió un problema. Por favor, inténtelo de nuevo.',
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-              });
-            }
-            return throwError(error); 
-          })
-        )
-        .subscribe();
+    if (this.busy || this.loguin.invalid || (this.codeSent && this.code.invalid)) return;
+    const {user, password} = this.loguin.getRawValue();
+    this.busy = true;
+    this.error = '';
+    if (!this.codeSent) {
+      this.authService.login(user!, password!).pipe(finalize(() => this.busy = false)).subscribe({
+        next: () => this.codeSent = true,
+        error: error => this.showError(error)
+      });
     } else {
-      Swal.fire({
-        title: 'Error',
-        text: 'Complete todos los campos',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
+      this.authService.verifyCode(user!, password!, this.code.value!).pipe(finalize(() => this.busy = false)).subscribe({
+        next: () => this.router.navigate(['/home']).then(() => window.location.reload()),
+        error: error => this.showError(error)
       });
     }
+  }
+
+  requestNewCode() {
+    this.codeSent = false;
+    this.code.reset();
+    this.error = '';
+  }
+
+  private showError(error: {status: number}) {
+    this.error = error.status === 400 ? 'El código es incorrecto o ha expirado. Solicita uno nuevo.'
+      : error.status === 401 || error.status === 403 ? 'Correo o contraseña incorrectos.'
+      : 'No se pudo ingresar. Revisa la conexión y vuelve a intentarlo.';
   }
 }

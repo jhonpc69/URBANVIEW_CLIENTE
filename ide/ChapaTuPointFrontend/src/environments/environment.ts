@@ -1,5 +1,5 @@
 export const environment = {
-    base_url: 'http://localhost:8081',
+    base_url: '/api',
     idAplicativo: '1',
     codigoAplicativo: 'ChapaTuPoint',
     nombreAplicativo: 'Chapa Tu Point',

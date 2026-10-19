@@ -1,3 +1,6 @@
+import { AppModule } from '../app.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewLocalComponent } from './new-local.component';
@@ -8,7 +11,7 @@ describe('NewLocalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewLocalComponent ]
+      imports: [AppModule, HttpClientTestingModule, RouterTestingModule]
     })
     .compileComponents();
 

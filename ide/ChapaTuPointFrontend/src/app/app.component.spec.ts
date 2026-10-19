@@ -1,6 +1,12 @@
+import { Component, Input } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+
+@Component({selector: 'app-header', template: ''})
+class HeaderStub {}
+@Component({selector: 'app-carga', template: ''})
+class LoadingStub {}
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -9,7 +15,7 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent, HeaderStub, LoadingStub
       ],
     }).compileComponents();
   });
@@ -26,10 +32,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('ChapaTuPointFront');
   });
 
-  it('should render title', () => {
+  it('should render the application shell', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ChapaTuPointFront app is running!');
+    expect(compiled.querySelector('router-outlet')).not.toBeNull();
+    expect(compiled.querySelector('app-header')).not.toBeNull();
   });
 });

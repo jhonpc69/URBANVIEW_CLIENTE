@@ -53,6 +53,7 @@ export class NewLocalComponent implements OnInit {
 
   onFileChange(event: any) {
     const files = event.target.files;
+    this.selectedFiles = [];
     if (files.length > 5) {
       alert('You can upload a maximum of 5 images.');
       event.target.value = ''; 
@@ -63,6 +64,8 @@ export class NewLocalComponent implements OnInit {
 
   onFileChange2(event: any) {
     const files = event.target.files;
+    this.selectedPdf = null;
+    if (!files.length) return;
     if (files.length > 1) {
       alert('You can upload only one PDF file.');
       event.target.value = ''; 
@@ -78,6 +81,12 @@ export class NewLocalComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if (this.isLoading) return;
+    if (this.localForm.invalid || !this.selectedFiles.length || !this.selectedPdf) {
+      this.localForm.markAllAsTouched();
+      Swal.fire({icon: 'warning', text: 'Completa los campos obligatorios, adjunta al menos una imagen y la ficha RUC en PDF.'});
+      return;
+    }
     this.isLoading = true;
     const formData = new FormData();
     const formValue = this.localForm.value;
@@ -93,7 +102,9 @@ export class NewLocalComponent implements OnInit {
 
 
   const diasAtencion = Object.keys(formValue.diasAtencion).filter(dia => formValue.diasAtencion[dia]).join(', ');
-  formData.append('diasAtencion', diasAtencion);
+  formData.append('diasSemana', diasAtencion);
+  formData.append('imgPortada', this.selectedFiles[0]);
+  formData.append('imgDestacado', this.selectedFiles[1] || this.selectedFiles[0]);
 
 
     this.selectedFiles.forEach(file => {
